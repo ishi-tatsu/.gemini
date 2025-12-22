@@ -1,0 +1,312 @@
+©-:root {
+    --color-bg: #F9F9F7;
+    --color-text: #3E4E42;
+    --color-primary: #2F4F4F;
+    --color-accent: #C5A065;
+    --color-white: #FFFFFF;
+    --font-heading: 'Noto Serif JP', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('assets/hero.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Darken bg for text readability */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.brand-title {
+    font-size: 4rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.brand-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 40px;
+    background-color: var(--color-white);
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background-color: var(--color-accent);
+}
+
+/* Concept Section */
+.concept-layout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.concept-image {
+    flex: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.concept-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.6s ease;
+}
+
+.concept-image:hover img {
+    transform: scale(1.05);
+}
+
+.concept-text {
+    flex: 1;
+}
+
+.concept-text h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--color-primary);
+}
+
+.concept-text p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+/* Shop Section */
+.shop {
+    background-color: #fff;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Default 3 columns */
+    gap: 30px;
+}
+
+.shop-card {
+    background: var(--color-bg);
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+}
+
+.shop-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    background: var(--color-white);
+    border-color: rgba(197, 160, 101, 0.2);
+}
+
+.card-icon {
+    margin-bottom: 20px;
+    color: var(--color-primary);
+    transition: var(--transition);
+}
+
+.shop-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-family: var(--font-body);
+}
+
+.shop-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.link-arrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition);
+}
+
+.shop-card:hover .link-arrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.shop-card:hover .card-icon {
+    color: var(--color-accent);
+}
+
+/* Custom styles for specific cards if needed */
+.shop-card.instagram:hover .card-icon {
+    color: #E1306C;
+}
+/* Mercari and Yahoo color overrides can go here if desired, but keeping minimal is safer */
+
+/* Footer */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+.fade-in, .fade-in-up, .fade-in-left, .fade-in-right {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up {
+    transform: translateY(30px);
+}
+.fade-in-left {
+    transform: translateX(-30px);
+}
+.fade-in-right {
+    transform: translateX(30px);
+}
+
+.visible {
+    opacity: 1;
+    transform: translate(0);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+    40% {transform: translateY(-10px) translateX(-50%);}
+    60% {transform: translateY(-5px) translateX(-50%);}
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .shop-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .concept-layout {
+        flex-direction: column;
+    }
+    
+    .brand-title {
+        font-size: 2.5rem;
+    }
+}
+©-*cascade0826file:///Users/ishinotatsuya/.gemini/plant-lp/style.css
